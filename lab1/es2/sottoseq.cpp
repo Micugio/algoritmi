@@ -1,11 +1,14 @@
-#include <iostream>
 #include <fstream>
 using namespace std;
+
+int N;
+int arr[1000000];
 
 int main() {
     ifstream in("input.txt");
     ofstream out("output.txt");
 
+/*
     int A;
     int B;
     int res;
@@ -16,6 +19,7 @@ int main() {
     res = A + B;
 
     out << res;
-    
+*/
+
     return 0;
 }
