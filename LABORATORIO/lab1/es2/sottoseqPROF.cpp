@@ -1,3 +1,4 @@
+#include <iostream>
 #include <fstream>
 using namespace std;
 
@@ -19,17 +20,17 @@ int main() {
     //per ogni sottosequenza
     for(int i=0; i<N; i++) {
         for(int j=i; j<N; j++) {
-        //calcola somma della sottosequenza
-        int tot = 0;
-        for(int k=i; k<=j; k++) {
-            tot += arr[k];
-        }
-        mx = max(mx,tot);
+            //calcola somma della sottosequenza
+            int tot = 0;
+            for(int k=i; k<=j; k++) {
+                tot += arr[k];
+            }
+            mx = max(mx,tot);
         }
     }
 
     ofstream out("output.txt");
+    out << mx << endl;
 
-    out<<mx<<endl;
     return 0;
 }
