@@ -19,15 +19,15 @@ int counter = 0;
 
 void visita(vector<nodo>& grafo, int value){
     if (!grafo[value].visited) {
+        grafo[value].visited = true;
+        counter++;
         for(int i=0; i<grafo[value].vic.size(); i++){
-            grafo[value].visited = true;
             visita(grafo, grafo[value].vic[i]);
-            counter++;
         }
     }
 }
 
-int main(){
+int main() {
     int N, M, s;
 
     in >> N >> M >> s;

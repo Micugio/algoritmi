@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <queue> 
 using namespace std;
 
 struct nodo{
@@ -10,13 +11,48 @@ struct nodo{
 
 vector<nodo> grafo;
 
+queue<int> q;
+
+int N, M;
+
 ifstream in("input.txt");
 ofstream out("output.txt");
 
-int main(){
-    int N, M, s;
+void distance(vector<nodo>& grafo, int value){
+    q.push(value);
+    vector<int> distance(N);
 
-    in >> N >> M >> s;
+    while (!q.empty) {
+        nodo u = q.front();
+        q.pop();
+        for(int i=0; i<grafo[value].vic.size(); i++){
+            if (distance[grafo[value].vic[i]]) {
+                //
+            }
+        }
+    }
+
+    if (!grafo[value].visited) {
+        grafo[value].visited = true;
+        counter++;
+        for(int i=0; i<grafo[value].vic.size(); i++){
+            visita(grafo, grafo[value].vic[i]);
+        }
+    }
+}
+
+void diametro(vector<nodo>& grafo, int value){
+    if (!grafo[value].visited) {
+        grafo[value].visited = true;
+        counter++;
+        for(int i=0; i<grafo[value].vic.size(); i++){
+            visita(grafo, grafo[value].vic[i]);
+        }
+    }
+}
+
+int main(){
+    in >> N >> M;
 
     grafo.resize(N);
 
@@ -32,12 +68,7 @@ int main(){
 
         for(int j=0; j<grafo[i].vic.size(); j++) {
             cout << "  " << grafo[i].vic[j] << "\n";
-        }
-      
-        //Sintassi c++11
-        for(int v:grafo[i].vic) {
-            cout << " " << v << "\n";
-        }     
+        }   
     }
 
 
